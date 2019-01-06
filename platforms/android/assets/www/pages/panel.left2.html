@@ -1,0 +1,37 @@
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel2" data-position="right" data-display="overlay" data-position-fixed="true" >
+		
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						
+	<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل</li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
+                  
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview"   data-inset="false">
+                <li data-role="list-divider">دسترسی ها</li>
+                    <li  ><a href="#one"  data-icon="false"><i class="zmdi zmdi-view-list-alt"></i>  لیست درخواست ها</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().showfaver()"  data-icon="false"><i class="zmdi zmdi-favorite"></i> ثبت درخواست جدید</a></li>
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().openb('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
