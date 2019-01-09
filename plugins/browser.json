@@ -13,9 +13,6 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.namia.bime"
         },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.namia.bime"
         },

@@ -15,6 +15,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		pictureSource=navigator.camera.PictureSourceType;
+       destinationType=navigator.camera.DestinationType;
         app.receivedEvent('deviceready');
 		  FastClick.attach(body);
 		
@@ -116,7 +118,9 @@ function onPhotoURISuccessd(imageURI) {
 // A button will call this function
 //
 function getPhotod(source) {
+ 
   // Retrieve image file location from specified source
   navigator.camera.getPicture(onPhotoURISuccessd, onFail, { quality: 50,
 	destinationType: destinationType.FILE_URI,
 	sourceType: source });
+}

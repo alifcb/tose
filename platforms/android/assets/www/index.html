@@ -11,8 +11,6 @@
 		<link rel="stylesheet" href="css/waves/waves.min.css" />
 		<link rel="stylesheet" href="css/wow/animate.css" />
 		<link rel="stylesheet" href="css/nativedroid2.css" />
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World</title>
 </head>
@@ -20,7 +18,8 @@
    <input id="online" value="1" type="hidden">
    <input  id="version" value="1" type="hidden">
    <input id="userid" value="0" type="hidden">
-   
+   <input id="username" value="0" type="hidden">
+   <input id="usertype" value="0" type="hidden">
 <div data-role="page" class="nd2-no-menu-swipe" id="login">
 <nd2-include  data-src="pages/panel.left.html"></nd2-include>
 <div  data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
@@ -36,9 +35,9 @@
 فرم ورود
 </h5>
 <fieldset data-role="controlgroup">
-<input type="email" name="inputEmail" id="inputEmail"   placeholder="ایمیل">
-<input type="password" name="name2" id="name2b" placeholder="رمز عبور">
-<a href="#one" class="ui-btn ui-btn-raised clr-primary">ورود</a>
+<input type="email" ng-model="login.email"   placeholder="ایمیل">
+<input type="password" ng-model="login.pass" placeholder="رمز عبور">
+<a ng-click="sabt_login()" class="ui-btn ui-btn-raised clr-primary">ورود</a>
 </fieldset>
 </div>
 </div>
@@ -68,7 +67,7 @@
 		<div class="card-media-overlay with-background">
 
 			<div class="card-title has-supporting-text">
-				<h5 class="card-subtitle">تمام درخواست ها: 4</h5>
+				<h5 class="card-subtitle">تمام درخواست ها: {{dall}}</h5>
 				
 			</div>
 		</div></a>
@@ -85,7 +84,7 @@
 		<div class="card-media-overlay with-background">
 
 			<div class="card-title has-supporting-text">
-				<h5 class="card-subtitle">درخواست های جدید: 4</h5>
+				<h5 class="card-subtitle">درخواست های جدید: {{dnew}}</h5>
 			</div>
 
 		</div>
@@ -189,49 +188,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>محمد غلامی</td>
-      <td>حسین محرابی</td>
-      <td>باجه کردستان</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۰۲:۰۷</td>
-       <td><a>نمایش</a></td>
-    </tr>
-       <tr>
-      <td>2</td>
-      <td>محمد سلطانی</td>
-      <td>حسین شناس</td>
-      <td>باجه نوشهر</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۱۱:۱۷</td>
-             <td><a>نمایش</a></td>
-    </tr>
-        <tr>
-      <td>3</td>
-      <td>علی بیک محمدی</td>
-      <td>علیرضا جوادی</td>
-      <td>باجه کرمانشاه</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۱۰:۱۹</td>
-             <td><a>نمایش</a></td>
-    </tr>  
-      <tr>
-      <td>4</td>
-      <td>محمد غلامی</td>
-      <td>حسین محرابی</td>
-      <td>باجه کردستان</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۰۲:۰۷</td>
-             <td><a>نمایش</a></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>محمد غلامی</td>
-      <td>حسین محرابی</td>
-      <td>باجه کردستان</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۰۲:۰۷</td>
-             <td><a href="#end">نمایش</a></td>
+    <tr  ng-repeat="shda in darkhast">
+      <td>{{$index}}</td>
+      <td>{{shda.user}}</td>
+      <td>{{shda.onvan}}</td>
+      <td>{{shda.shop}}</td>
+      <td>{{shda.date}}</td>
+      <td><a href="#end">نمایش</a></td>
     </tr>
   
   </tbody>
-</table>   </div>         </div>
+</table> 
+</div> 
+   </div>
           
 </div>
 
@@ -266,7 +235,7 @@
       <td>حسین محرابی</td>
       <td>باجه کردستان</td>
       <td>۱۳۹۷/۱۰/۱۱ ۰۲:۰۷</td>
-             <td><a href="#end">نمایش</a></td>
+      <td><a href="#end">نمایش</a></td>
     </tr>
   
   </tbody>
@@ -274,8 +243,7 @@
           
 </div>
 <!--/////////-----------------------/////////// namayesh , pasokh ha///------------------------//////////-->
-
-  <div data-role="page" id="end" class="nd2-no-menu-swipe">
+ <div data-role="page" id="end" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
@@ -287,11 +255,8 @@
 	<li data-tab="work" >پاسخ</li>
 	<li data-tab="holiday">تصاویر</li>
 </ul>
-            </div>
- 			<div role="main" class="ui-content about" data-inset="false"  >
-            
-
-
+     </div>
+ 			<div role="main" class="ui-content about" data-inset="false" >
 <div data-role="nd2tab" data-tab="friends">
     <div class="col-xs-10 col-xs-offset-1"  >
  <h6 class="nd2-headline align-right">
@@ -400,28 +365,28 @@
  			<div role="main" class="ui-content about" data-inset="false"  >
  <div class="row ">   
     <div class="col-xs-10 col-xs-offset-1"  >
+    <div  ng-show="enphoto">
  <h5 class="nd2-headline align-center">
 فرم ثبت درخواست
 </h5>
-<input type="text" name="inputEmail" id="name"   placeholder="عنوان">
-
-
-         
+<input type="text" ng-model="khodr.onvan"  placeholder="عنوان">
 <label for="select-choice-1b" class="select">نوع بیمه نامه</label>
 <span class="btnco">
-<select name="select-choice-1" id="select-choice-1b" data-native-menu="false">
+<select ng-model="khodr.nooe"  data-native-menu="false">
     <option value="1">ثالث</option>
     <option value="2">بدنه</option>
 </select></span>
-<input type="text" name="name2" id="tellb" placeholder="شماره تماس بیمه گذار:">
-<input type="text" name="name2" id="addressb" placeholder="آدرس و کد پستی:">
-<textarea cols="40" rows="8" name="textarea2" id="textareasb" placeholder="توضیحات"></textarea>
-<a href="#one" class="ui-btn ui-btn-raised clr-primary">ثبت</a>
-
-<div><a href="#" style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);"><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
- 
+<input type="text" ng-model="khodr.tellb"  placeholder="شماره تماس بیمه گذار:">
+<input type="text" ng-model="khodr.addressb"  placeholder="آدرس و کد پستی:">
+<textarea cols="40" rows="8" ng-model="khodr.tozihat"  placeholder="توضیحات"></textarea>
+<a ng-click="sabt_darkhast()" class="ui-btn ui-btn-raised clr-primary">ثبت</a>
+</div>
+<div  ng-show="sephoto"><a style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);"><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
+  <h5 class="nd2-headline align-center">
+فرم ثبت تصاویر
+</h5>
          <div id="shosos" style=" display:block;">
-         <img style="display:none; padding:15px" width="64" height="64" id="largeImage1" src="img/tick.png" />
+         <img style="display:none; padding:15px" width="64" height="64" id="largeImage2" src="img/tick.png" />
       <a id="shoo1" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendform();" type="button">ارسال</a> 
    </div>
        </div>
