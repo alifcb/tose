@@ -61,7 +61,7 @@
 <div class="nd2-card">
 
 	<div class="card-media">
-    <a href="#list">
+    <a href="#list" ng-click="shdarkh(1)">
 		<img src="img/b2.jpg" height="80px">
 
 		<div class="card-media-overlay with-background">
@@ -79,6 +79,7 @@
 <div class="nd2-card">
 
 	<div class="card-media">
+    <a href="#list" ng-click="shdarkh(0)">
 		<img src="img/b1.jpg"  height="80px">
 
 		<div class="card-media-overlay with-background">
@@ -88,7 +89,7 @@
 			</div>
 
 		</div>
-
+</a>
 	</div>
 
 </div>
@@ -98,7 +99,7 @@
 </div>
  <div class="col-xs-12">
 <div  class="nd2-card">
-<a   href="#sabt">
+<a   href="#sabt" ng-click="sab_da()">
 <div class="card-media" >
 	<img alt="namia"  src="img/b3.jpg">
     <div class="card-media-overlay with-background">
@@ -313,7 +314,8 @@
 <hr><br>
 	  <h4 class="card-title">ثبت پاسخ درخواست</h4>
       <textarea cols="40" rows="8" name="textarea2" id="textarea2b" placeholder="توضیحات"></textarea>
-<div class="pad10"><a href="#" style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);"><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
+<div class="pad10">
+<a onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);" style="color:#585757" ><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
          <div id="shoso" style=" display:block;">
          <img style="display:none; padding:15px" width="64" height="64" id="largeImage0" src="img/tick.png" />
       <a id="shoo" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendform();" type="button">ارسال</a> 
@@ -381,14 +383,20 @@
 <textarea cols="40" rows="8" ng-model="khodr.tozihat"  placeholder="توضیحات"></textarea>
 <a ng-click="sabt_darkhast()" class="ui-btn ui-btn-raised clr-primary">ثبت</a>
 </div>
-<div  ng-show="sephoto"><a style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);"><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
-  <h5 class="nd2-headline align-center">
+<div  ng-show="sephoto">  <h5 class="nd2-headline align-center">
 فرم ثبت تصاویر
 </h5>
+<a onclick="getPhotod();" style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" ><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
          <div id="shosos" style=" display:block;">
          <img style="display:none; padding:15px" width="64" height="64" id="largeImage2" src="img/tick.png" />
-      <a id="shoo1" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendform();" type="button">ارسال</a> 
-   </div>
+         </div>
+      <a id="shoo1" class="ui-btn ui-btn-raised clr-primary" onClick="sendak()"  ng-click="sendaks();" type="button">ارسال</a> 
+    <p class="align-right">
+          تصاویر ارسال شده:
+          </p> 
+    <div id="shall" >
+         
+         </div>
        </div>
        </div>
         
@@ -470,6 +478,7 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
+
      </script>
 </body>
 </html>

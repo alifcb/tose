@@ -45,6 +45,15 @@ new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نم
 $http.post(url, datas, config);
 setTimeout(function(){ $scope.rlogin(1);}, 2000);
 };
+
+//////////////////
+$scope.sab_da = function () {
+$scope.sephoto=false;
+$scope.enphoto=true;
+document.getElementById('largeImage2').style.display = 'none';
+document.getElementById('shall').innerHTML="";
+ 
+};
  /////////////////////////////////////////////////////////////////////////ersal form sabt darkhst
  $scope.khodr = {};	
 $scope.sabt_darkhast = function () {
@@ -54,11 +63,11 @@ var phoned=$scope.khodr.tellb;
 var tozihatd=$scope.khodr.tozihat;
 var typedd=$scope.khodr.nooe;
 $scope.uid =  document.getElementById('userid').value;
-$scope.sephoto=true;
-$scope.enphoto=false;
 if($scope.khodr.addressb==undefined || $scope.khodr.onvan==undefined || $scope.khodr.tellb==undefined || $scope.khodr.tozihat==undefined){
 new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
  return 0;}
+ $scope.sephoto=true;
+$scope.enphoto=false;
 new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
   $http({
   method  : 'POST',
@@ -72,14 +81,41 @@ new $.nd2Toast({   message :"ثبت با موفقیت ارسال به بخش ب�
  $scope.khodr = {};	
    });
  };
+ 
+ ////////////////////ersal aksha darkhast
+  $scope.khodr = {};	
+$scope.sendaks = function () {
+var vImage = document.getElementById('largeImage2').src;
+$scope.uid =  document.getElementById('userid').value;
+if(vImage==undefined){
+
+
+new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
+ return 0;}
+new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
+var d = new Date();	
+var namefile=d.getTime()+'.jpg';
+var largeImage = document.getElementById('largeImage2');
+var imageURI=largeImage.src;
+todoServicez.UserImg(imageURI,namefile,'end').then(function(){
+document.getElementById('largeImage2').src="img/Sdcds.jpg";
+new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
+});
+$http.get("http://admin.borna-grp.ir/api.php?idx="+$scope.uid+"&pict="+namefile).then(function(response) {
+ $scope.logind = response.data.login;
+ $scope.khodr = {};	
+   });
+ };
+ 
 /////////////////////////////////////////////namayesh darkhastha
-setTimeout(function(){
+$scope.shdarkh = function (flag) {
+	 $scope.flagd=flag;
 var idud=document.getElementById('userid').value;
 var typer=document.getElementById('usertype').value;
 $http.get("http://admin.borna-grp.ir/api.php?vreq="+idud+"&type="+typer).then(function(response) {
 $scope.darkhast = response.data.vreq;
 });  
- }, 2500);
+ };
  
   
 ////////////////////////////////////end controler

@@ -31,6 +31,12 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.namia.bime"
         },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.namia.bime"
         },
@@ -38,6 +44,12 @@
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-network-information": {
@@ -56,9 +68,5 @@
             "PACKAGE_NAME": "com.namia.bime"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.namia.bime"
-        }
-    }
+    "dependent_plugins": {}
 }

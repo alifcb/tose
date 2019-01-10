@@ -15,16 +15,16 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+			var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value
 		pictureSource=navigator.camera.PictureSourceType;
        destinationType=navigator.camera.DestinationType;
         app.receivedEvent('deviceready');
-		  FastClick.attach(body);
-		
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 	 
-        var parentElement = document.getElementById(id);
+        //var parentElement = document.getElementById(id);
         console.log('Received Event: ' + id);
     }
 };
@@ -114,13 +114,26 @@ function onPhotoURISuccessd(imageURI) {
   var largeImage = document.getElementById('largeImage2');
   largeImage.style.display = 'inline';
   largeImage.src = imageURI;
+ // alert(imageURI);
+  sPicData  = imageURI; //store image data in a variable
 }
 // A button will call this function
 //
 function getPhotod(source) {
- 
-  // Retrieve image file location from specified source
-  navigator.camera.getPicture(onPhotoURISuccessd, onFail, { quality: 50,
-	destinationType: destinationType.FILE_URI,
-	sourceType: source });
+     navigator.camera.getPicture(onPhotoURISuccessd, picOnFailure, { 
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+            correctOrientation: true
+        });
+    }
+
+function picOnFailure(message){
+	alert('Failed because: ' + message);
+}
+
+function sendak() {
+ var shosos = document.getElementById('shosos').innerHTML;
+ $("#shall").append(shosos);
+	 
 }
