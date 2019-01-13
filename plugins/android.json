@@ -56,5 +56,9 @@
             "PACKAGE_NAME": "com.namia.bime"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.namia.bime"
+        }
+    }
 }

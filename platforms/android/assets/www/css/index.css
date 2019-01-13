@@ -13,7 +13,8 @@
 	   url('../fonts/IRANSansWeb_Light.woff2') format('woff2'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/  
        url('../fonts/IRANSansWeb_Light.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
- 
+@font-face{font-family:Material Design Iconic Font;src:url(../fonts/Material-Design-Iconic-Font.woff?v=2.0.0) format('woff'),url(../fonts/Material-Design-Iconic-Font.ttf?v=2.0.0) format('truetype')}
+
 * {
 }
 body, input, select, textarea, button, .ui-btn, h1, h2, h3, h4, h5, h6 {
@@ -273,5 +274,33 @@ h4{text-align:right}
 blockquote {
  
     margin: 10px 0;
+}
+img:before { 
+  content: " ";
+  display: block;
+
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: calc(100% + 10px);
+  width: 100%;
+  background-color: rgb(230, 230, 230);
+  border: 2px dotted rgb(200, 200, 200);
+  border-radius: 5px;
+}
+
+img:after { 
+  content: "\f10a" " فایل متنی " attr(alt);
+  display: block;
+  font-size: 16px;
+  font-style: normal;
+  font-family: FontAwesome;
+  color: rgb(100, 100, 100);
+  
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
  .dirr{direction:rtl;}

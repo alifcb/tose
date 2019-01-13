@@ -5,6 +5,12 @@ App.controller('CenterCTRL', function ($scope,$http,todoServicez,$sce) {
 $scope.wopen = function(links) {
  window.open(links, '_system', '');
 };
+$scope.inappb = function(links){ 
+//alert(links);
+ var browser = cordova.InAppBrowser.open(links, '_blank', 'location=no','hideurlbar=yes');
+ 
+};
+
 
 ///////////////////////////////login
 setTimeout(function(){ $scope.rlogin(0);}, 2000);
@@ -117,6 +123,24 @@ $scope.darkhast = response.data.vreq;
 });  
  };
  
+ /////////////////////////////////////////////namayesh user
+ 
+$scope.shusers = function () {
+$http.get("http://admin.borna-grp.ir/api.php?users").then(function(response) {
+$scope.users = response.data.users;
+});  
+ };
+/////////////////////////////////////////// show info darkhastha
+$scope.shinfo = function (idss) {
+	//alert(idss);
+$http.get("http://admin.borna-grp.ir/api.php?infos="+idss).then(function(response) {
+$scope.infos = response.data;
+});  
+ /////////////////////////////////////////// show chat info
+$http.get("http://admin.borna-grp.ir/api.php?chat="+idss).then(function(response) {
+$scope.chat = response.data.chat;
+});  
+ };
   
 ////////////////////////////////////end controler
 });	

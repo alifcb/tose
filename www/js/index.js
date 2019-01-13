@@ -137,3 +137,12 @@ function sendak() {
  $("#shall").append(shosos);
 	 
 }
+
+function downloadi(links){
+	alert(links); 
+downloader.init({folder: "download", unzip: true});
+downloader.get(links);
+document.addEventListener(DOWNLOADER_error, function(event){
+ alert(event.data);
+});
+};

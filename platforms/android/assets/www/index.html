@@ -61,7 +61,7 @@
 <div class="nd2-card">
 
 	<div class="card-media">
-    <a href="#list" ng-click="shdarkh(1)">
+    <a href="#list" ng-click="shdarkh()">
 		<img src="img/b2.jpg" height="80px">
 
 		<div class="card-media-overlay with-background">
@@ -120,7 +120,7 @@
 <div class="nd2-card">
 
 	<div class="card-media">
-        <a   href="#listuser">
+        <a   href="#listuser" ng-click="shusers()">
 		<img height="100" src="img/b4.jpg">
 
 		<div class="card-media-overlay with-background">
@@ -189,13 +189,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr  ng-repeat="shda in darkhast">
-      <td>{{$index}}</td>
+    <tr  ng-repeat="shda in darkhast | filter:{ flag : flagd }">
+      <td>{{$index+1}}</td>
       <td>{{shda.user}}</td>
       <td>{{shda.onvan}}</td>
       <td>{{shda.shop}}</td>
       <td>{{shda.date}}</td>
-      <td><a href="#end">نمایش</a></td>
+      <td><a href="#end" ng-click="shinfo(shda.code)">نمایش</a></td>
     </tr>
   
   </tbody>
@@ -223,20 +223,18 @@
     <tr>
       <th >ردیف</th>
       <th>کاربر</th>
-      <th>عنوان</th>
-      <th>فروشگاه</th>
-      <th>تاریخ</th>
-      <th>نمایش</th>
+      <th>تاریخ عضویت</th>
+      <th>تلفن</th>
+      <th>نوع</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>5</td>
-      <td>محمد غلامی</td>
-      <td>حسین محرابی</td>
-      <td>باجه کردستان</td>
-      <td>۱۳۹۷/۱۰/۱۱ ۰۲:۰۷</td>
-      <td><a href="#end">نمایش</a></td>
+<tr  ng-repeat="uss in users">
+      <td>{{$index}}</td>
+      <td>{{uss.user}}</td>
+      <td>{{uss.date}}</td>
+      <td>{{uss.cell}}</td>
+      <td>{{uss.type}}</td>
     </tr>
   
   </tbody>
@@ -263,13 +261,12 @@
  <h6 class="nd2-headline align-right">
 اطلاعات درخواست <i class="zmdi zmdi-info-outline"></i>
 </h6>
-<p>عنوان: حسین حق شناس</p>
-<p>نام کاربر: محمد سلطانی</p>
-<p>استان: مازندران</p>
-<p>شماره تماس بیمه گذار:</p>
-<p>آدرس بیمه گذار: تمدیدی</p>
-<p>توضیحات:
-نقدی</p>
+<p>عنوان: {{infos.onvan}}</p>
+<p>نام کاربر: {{infos.name}}</p>
+<p>استان: {{infos.city}}</p>
+<p>شماره تماس بیمه گذار: {{infos.phone}}</p>
+<p>آدرس بیمه گذار: {{infos.posti}}</p>
+<p>توضیحات: {{infos.tozihat}}</p>
 </div>
 
 </div>
@@ -282,35 +279,15 @@
 </h6>
 
 <div class="card-content">
-<h4 style="margin:0; padding:0;">حسین حق شناس</h4><br>
-	<blockquote>
-<p>نقدی</p>	                         
+<h4 style="margin:0; padding:0;">{{infos.onvan}}</h4><br>
+	<blockquote ng-repeat="chats in chat">
+<p>{{chats.onvan}}</p>	                         
 		 
 <small>
-محمد سلطانی, 3 روز قبل - <a style="color:red" href="http://borna-grp.ir/images/customer/Namia_15463288841763732.jpg" target="_blank">فایل ضمیمه</a> 
+{{chats.name}}, {{chats.date}} - <a ng-repeat="picc in chats.pic" style="color:red" onclick="downloadi(this.href)" href="{{picc}}" target="_blank"> فایل ضمیمه . </a> 
 </small>
 </blockquote>
-	<blockquote>
-<p>حق بیمه 11.920.159 ریال</p>	                         
-		 
-<small>
-شهاب حیدری, 3 روز قبل  
-</small>
-</blockquote>
-	<blockquote>
-<p>واریز شد</p>	                         
-		 
-<small>
-محمد سلطانی, 3 روز قبل - <a style="color:red" href="http://borna-grp.ir/images/customer/Namia_1546329033987614.jpg" target="_blank">فایل ضمیمه</a> 
-</small>
-</blockquote>
-	<blockquote>
-<p>صادر شد</p>	                         
-		 
-<small>
-شهاب حیدری, 3 روز قبل - <a style="color:red" href="http://borna-grp.ir/images/customer/Namia_154632907157161.pdf" target="_blank">فایل ضمیمه</a> 
-</small>
-</blockquote>
+	
 <hr><br>
 	  <h4 class="card-title">ثبت پاسخ درخواست</h4>
       <textarea cols="40" rows="8" name="textarea2" id="textarea2b" placeholder="توضیحات"></textarea>
@@ -332,23 +309,23 @@
  <h6 class="nd2-headline align-right">
 تصاویر <i class="zmdi zmdi-attachment-alt"></i>
 </h6>
-<div class="nd2-card">
+<div class="nd2-card" ng-repeat="picd in infos.pic">
 
-					<div class="card-media">
-						<img height="150" src="img/b3.jpg">
-					</div>
+<div class="card-media">
+    <img height="150" src="{{picd}}">
+</div>
 
-					<div class="card-action">
-						<div class="row between-xs">
-							<div class="col-xs-12 align-right">
-								<div class="box">
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button black"><i class="zmdi zmdi-download"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
+<div class="card-action">
+    <div class="row between-xs">
+        <div class="col-xs-12 align-right">
+            <div class="box">
+                <a ng-click="inappb(picd)" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button black"><i class="zmdi zmdi-download"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-				</div>
+</div>
 </div>
 </div>
             </div>
