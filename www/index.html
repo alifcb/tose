@@ -45,7 +45,39 @@
 </div>
 
 <div data-role="page" class="nd2-no-menu-swipe" id="one">
-<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel2" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 <div  data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
     <a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 <h1 class="wow fadeIn" data-wow-delay="0.4s">فرهنگ بیمه</h1>
@@ -143,7 +175,7 @@
 <div class="nd2-card">
 
 	<div class="card-media">
-    <a   href="#adduser">
+    <a   href="#adduser" >
 		<img height="100" src="img/b5.jpg">
 
 		<div class="card-media-overlay with-background">
@@ -166,7 +198,39 @@
 </div>
 <!--/////////-----------------------/////////// namayesh list darkhast ha///------------------------//////////-->
   <div data-role="page" id="list" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel3" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv2"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
@@ -205,12 +269,44 @@
           
 </div>
 
-<!--/////////-----------------------/////////// namayesh list darkhast ha///------------------------//////////-->
+<!--/////////-----------------------/////////// namayesh list user ha///------------------------//////////-->
   <div data-role="page" id="listuser" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel4" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv3"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
- 				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+ 				<a href="#leftpanel4" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">فرهنگ بیمه</h1>
 			</div>
  			<div role="main" class="ui-content about" data-inset="false"  >
@@ -241,12 +337,46 @@
 </table>   </div>         </div>
           
 </div>
+
+
 <!--/////////-----------------------/////////// namayesh , pasokh ha///------------------------//////////-->
  <div data-role="page" id="end" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel5" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv4"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
- 				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+ 				<a href="#leftpanel4" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">فرهنگ بیمه</h1>
 			
                         <ul data-role="nd2tabs" data-swipe="true">
@@ -267,6 +397,8 @@
 <p>شماره تماس بیمه گذار: {{infos.phone}}</p>
 <p>آدرس بیمه گذار: {{infos.posti}}</p>
 <p>توضیحات: {{infos.tozihat}}</p>
+
+
 </div>
 
 </div>
@@ -284,18 +416,19 @@
 <p>{{chats.onvan}}</p>	                         
 		 
 <small>
-{{chats.name}}, {{chats.date}} - <a ng-repeat="picc in chats.pic" style="color:red" onclick="downloadi(this.href)" href="{{picc}}" target="_blank"> فایل ضمیمه . </a> 
+{{chats.name}}, {{chats.date}} - <a ng-repeat="picc in chats.pic" style="color:red" ng-click="inappb(picc)" target="_blank"> فایل ضمیمه . </a> 
 </small>
 </blockquote>
 	
 <hr><br>
 	  <h4 class="card-title">ثبت پاسخ درخواست</h4>
-      <textarea cols="40" rows="8" name="textarea2" id="textarea2b" placeholder="توضیحات"></textarea>
+      <textarea cols="40" rows="8" ng-model="answer.text"  placeholder="توضیحات"></textarea>
+<input type="text" id="coderip" style="display:none"  ng-model="infos.code" value="">
 <div class="pad10">
-<a onclick="getPhotod(pictureSource.SAVEDPHOTOALBUM);" style="color:#585757" ><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
+<a onclick="getPhotos();" style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" ><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
          <div id="shoso" style=" display:block;">
-         <img style="display:none; padding:15px" width="64" height="64" id="largeImage0" src="img/tick.png" />
-      <a id="shoo" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendform();" type="button">ارسال</a> 
+         <img style="display:none; padding:15px" width="64" height="64" id="largeImage3" src="img/tick.png" />
+      <a id="shoo" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendanswer();" type="button">ارسال</a> 
    </div>
        </div>
 	  <input class="form-control" name="id_replys" value="566022" type="hidden">
@@ -328,17 +461,48 @@
 </div>
 </div>
 </div>
-            </div>
-          
+</div>          
 </div>
 
 
 <!--/////////-----------------------/////////// sabt darkhast ha///------------------------//////////-->
 <div data-role="page" id="sabt" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel6" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv6"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
- 				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+ 				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">فرهنگ بیمه</h1>
             </div>
  			<div role="main" class="ui-content about" data-inset="false"  >
@@ -384,10 +548,42 @@
 
 <!--/////////-----------------------/////////// sabt user ha///------------------------//////////-->
 <div data-role="page" id="adduser" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel7" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv7"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
              <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
- 				<a href="#leftpanel3" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+ 				<a href="#leftpanel7" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">فرهنگ بیمه</h1>
             </div>
  			<div role="main" class="ui-content about" data-inset="false"  >
@@ -396,33 +592,95 @@
  <h5 class="nd2-headline align-center">
 فرم ثبت کاربر جدید
 </h5>
-<input type="text" name="fname" id="fname"   placeholder="نام">  
-<input type="text" name="lname" id="lname"   placeholder="نام خانوادگی">    
-<input type="email" name="email" id="email"   placeholder="ایمیل">    
-<input type="text" name="tell" id="tell"   placeholder="تلفن">    
-<input type="text" name="cell" id="cell"   placeholder="همراه">            
-<label for="ostan" class="select">استان</label>
-<span class="btnco">
-<select name="select-choice-1" id="ostan" data-native-menu="false">
-    <option value="1">--</option>
-</select></span>
-<label for="select-choice-1b" class="select">شهر</label>
-<span class="btnco">
-<select name="city" id="city" data-native-menu="false">
-    <option value="1">--</option>
+<input type="text" name="fname" ng-model="userd.fname"   placeholder="نام">  
+<input type="text" name="lname" ng-model="userd.lname"  placeholder="نام خانوادگی">    
+<input type="text" name="email" ng-model="userd.emails"  placeholder="ایمیل">    
+<input type="number" name="tell" ng-model="userd.tell"   placeholder="تلفن">    
+<input type="number" name="cell" ng-model="userd.cell"   placeholder="همراه">            
+
+<span class="btnco select">
+<label for="select-choice-1b" class="select">استان</label>
+<select  class="select-text"  ng-model="userd.selected" ng-change="shcity()" data-role="none" data-native-menu="false">
+    <option ng-repeat="ostanx in ostani" value="{{ostanx.ids}}">{{ostanx.name}}</option>
 </select></span>
 
-<input type="text" name="name2" id="shop" placeholder="نام فروشگاه">
-<input type="text" name="name2" id="khangi" placeholder="نام رئیس لوازم خانگی">
-<input type="text" name="name2" id="rbazargani" placeholder="نام رئیس بازارگانی">
-<input type="text" name="name2" id="shopr" placeholder="نام رئیس فروشگاهی">
-<input type="text" name="name2" id="address" placeholder="آدرس">
-<input type="text" name="name2" id="pass" placeholder="رمز عبور">
-<a href="#one" class="ui-btn ui-btn-raised clr-primary">ثبت</a>
+<span class="btnco select">
+ 
+ <select class="select-text" name="city" id="city" ng-model="userd.city" data-native-menu="false" data-role="none">
+     <option value="0">شهر</option>
+     <option ng-repeat="cityu in citys  | filter:{ p_id : ostanid }" value="{{cityu.cid}}">{{cityu.cname}}</option>
+</select>
+ </span>
+<input type="text"   ng-model="userd.shop"  placeholder="نام فروشگاه">
+<input type="text"   ng-model="userd.khangi"   placeholder="نام رئیس لوازم خانگی">
+<input type="text"   ng-model="userd.rbazargani"   placeholder="نام رئیس بازارگانی">
+<input type="text"  ng-model="userd.shopr" placeholder="نام رئیس فروشگاهی">
+<input type="text"  ng-model="userd.address"  placeholder="آدرس">
+<input type="password"  ng-model="userd.pass"  placeholder="رمز عبور">
+<a ng-click="sabt_user()" class="ui-btn ui-btn-raised clr-primary">ثبت</a>
  
        </div>
                   
 </div>
+</div>
+</div>
+<!--/////////-----------------------/////////// namayesh profile ///------------------------//////////-->
+
+  <div data-role="page" id="profile" class="nd2-no-menu-swipe">
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel8" data-position="right" data-display="overlay" data-position-fixed="true" >
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>کارگذاری بیمه</strong>
+								<span class="subline"><a href="#profile">پروفایل کاربری</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل </li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ><a ngclick="exits()" data-icon="false"><i class="zmdi zmdi-lock-open"></i> خروج</a></li> 
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a ng-click="wopen('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview" id="listv8"  data-inset="false">
+                <li  ><a ng-click="sab_da()" href="#sabt"  data-icon="false"><i class="zmdi zmdi-notifications-add"></i> ثبت درخواست جدید</a></li>
+                <li data-role="list-divider">لیست درخواست ها</li>
+                    <li ng-repeat="lcity in allcda"><a  href="#list" ng-click="shdarkhc(lcity.id)"  data-icon="false">{{lcity.ostan}} ({{lcity.number}})</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+             <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
+ 				<a href="#leftpanel8" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">پروفایل کاربری</h1>
+			</div>
+ 			<div role="main" class="ui-content about" data-inset="false"  >
+            <div ng-show="loginoff">
+            <div style="width:80%; margin:0 auto; display:block; padding:30px 0;">
+            <a href="#login" class="ui-btn ui-btn-raised clr-primary">ورود به قصه بان</a>
+            <hr/>
+            <p>جهت ورود به نرم افزار توسعه فرهنگ بیمه اتصال گوشی شما به اینترنت باید برقرار باشد.</p>
+            </div>
+            </div>
+            <div ng-show="loginon">
+ <div style="width:70%; margin:0 auto; display:block; padding:50px 0;">
+ <a  class="ui-btn  ui-btn-fab ui-btn-raised clr-grey centers"><i class="zmdi zmdi-account zmd-4x black"></i></a>
+ <p class="center">{{fnamep}}</p>
+ <p class="center">کاربر : {{pro}}</p>
+ <a ng-click="exits()" class="ui-btn ui-btn-raised clr-primary">خروج</a>
+</div> </div>
+         
 </div>
 </div>
 <!--/////////-----------------------/////////// namayesh about me ///------------------------//////////-->

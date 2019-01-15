@@ -13,8 +13,6 @@
 	   url('../fonts/IRANSansWeb_Light.woff2') format('woff2'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/  
        url('../fonts/IRANSansWeb_Light.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
-@font-face{font-family:Material Design Iconic Font;src:url(../fonts/Material-Design-Iconic-Font.woff?v=2.0.0) format('woff'),url(../fonts/Material-Design-Iconic-Font.ttf?v=2.0.0) format('truetype')}
-
 * {
 }
 body, input, select, textarea, button, .ui-btn, h1, h2, h3, h4, h5, h6 {
@@ -290,7 +288,7 @@ img:before {
 }
 
 img:after { 
-  content: "\f10a" " فایل متنی " attr(alt);
+  content: " فایل متنی " attr(alt);
   display: block;
   font-size: 16px;
   font-style: normal;
@@ -304,3 +302,108 @@ img:after {
   text-align: center;
 }
  .dirr{direction:rtl;}
+ 
+/* select starting stylings ------------------------------*/
+.select-text {
+	position: relative;
+	font-family: inherit;
+	width: 100%;
+	padding: 10px 10px 10px 0;
+	font-size: 14px;
+	border-radius: 0;
+	border: none;
+	text-align:right;
+	direction:rtl;
+	border-bottom: 1px solid rgba(0,0,0, 0.12);	
+	background-color: #efefef;
+    margin: 10px 0;
+}
+
+/* Remove focus */
+.select-text:focus {
+	outline: none;
+	border-bottom: 1px solid rgba(0,0,0, 0);
+
+}
+
+	/* Use custom arrow */
+.select .select-text {
+	appearance: none;
+	-webkit-appearance:none
+}
+
+.select:after {
+	position: absolute;
+	top: 18px;
+	right: 10px;
+	/* Styling the down arrow */
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid rgba(0, 0, 0, 0.12);
+	pointer-events: none;
+}
+
+
+/* LABEL ======================================= */
+.select-label {
+	color: rgba(0,0,0, 0.26);
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 0;
+	top: 10px;
+	transition: 0.2s ease all;
+}
+
+/* active state */
+.select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+	color: #2F80ED;
+	top: -20px;
+	transition: 0.2s ease all;
+	font-size: 14px;
+}
+
+/* BOTTOM BARS ================================= */
+.select-bar {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.select-bar:before, .select-bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: #2F80ED;
+	transition: 0.2s ease all;
+}
+
+.select-bar:before {
+	left: 50%;
+}
+
+.select-bar:after {
+	right: 50%;
+}
+
+/* active state */
+.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+	width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.select-highlight {
+	position: absolute;
+	height: 60%;
+	width: 100px;
+	top: 25%;
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}

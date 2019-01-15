@@ -1,17 +1,31 @@
 // JavaScript Document
 var App = angular.module('App', ['ngSanitize'] );
+
 App.controller('CenterCTRL', function ($scope,$http,todoServicez,$sce) {
 //////////////////////////////////////open links
+$scope.loginoff=true;
+$scope.loginon=false;
+
 $scope.wopen = function(links) {
  window.open(links, '_system', '');
 };
 $scope.inappb = function(links){ 
-//alert(links);
+var fild=links.split('.');
+ var ext=fild[2].split('.').pop();
+ //alert(ext);
+ var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"];
+ if(valid_formats.includes(ext)){
+	 
  var browser = cordova.InAppBrowser.open(links, '_blank', 'location=no','hideurlbar=yes');
- 
+	 }else{
+downloader.init({folder: "download", unzip: true});
+downloader.get(links);
+document.addEventListener(DOWNLOADER_error, function(event){
+ alert('خطا: '+event.data);
+});
+ }
+
 };
-
-
 ///////////////////////////////login
 setTimeout(function(){ $scope.rlogin(0);}, 2000);
 $scope.rlogin = function (sdv) {
@@ -27,6 +41,10 @@ if(sdv==1){new $.nd2Toast({   message :"خطا در اطلاعات وارد شد
 	 $scope.dall = $scope.logind[0].alls;
 	 $scope.dnew = $scope.logind[0].news;
 	 //alert($scope.dnew);
+	 $scope.loginoff=false;
+	 $scope.loginon=true;
+	 $scope.fnamep=$scope.logind[0].fname+' '+$scope.logind[0].lname;
+	 if($scope.logind[0].type==1){$scope.pro='کاربر';}else{$scope.pro='مدیر';}
 	 document.getElementById('userid').value=$scope.logind[0].ids;
 	 document.getElementById('usertype').value=$scope.logind[0].type;
 	  document.getElementById('username').value=$scope.logind[0].fname+' '+$scope.logind[0].lname;
@@ -35,6 +53,7 @@ if(sdv==1){new $.nd2Toast({   message :"خطا در اطلاعات وارد شد
  
  
 };
+//////////////////////////////// form login
  $scope.login = {};	
 $scope.sabt_login = function () {
 
@@ -44,15 +63,26 @@ new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نم
    var datas = $.param({uid:device.uuid, pass:$scope.login.pass, email:$scope.login.email});
   var config = {
                 headers : {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
             }
  var url='http://admin.borna-grp.ir/api.php';
 $http.post(url, datas, config);
 setTimeout(function(){ $scope.rlogin(1);}, 2000);
 };
-
-//////////////////
+/////////////////////////// exit
+$scope.exits = function () {
+	var uuid=document.getElementById('userid').value;
+ $http.get("http://admin.borna-grp.ir/api.php?exit="+uuid).then(function(response) {
+	 alert(response.data.exit);
+if(response.data.exit==1){
+  $scope.loginoff=true;
+ $scope.loginon=false;
+ $.mobile.changePage( "#login", { transition: "slideup"} );
+}
+   });
+};
+////////////////////////////////////////////
 $scope.sab_da = function () {
 $scope.sephoto=false;
 $scope.enphoto=true;
@@ -112,7 +142,85 @@ $http.get("http://admin.borna-grp.ir/api.php?idx="+$scope.uid+"&pict="+namefile)
  $scope.khodr = {};	
    });
  };
- 
+  /////////////////////////////////////////////////////////////////////////ersal form sabt users
+$http.get("city.json").then(function(response) {
+$scope.ostani = response.data.ostan;
+});   
+
+$scope.shcity = function () {
+$scope.ostanid= $scope.userd.selected;
+$http.get("city.json").then(function(response) {
+$scope.citys = response.data.city;
+});  
+};
+
+$scope.userd = {};	
+$scope.sabt_user = function () {
+var vshop=$scope.userd.shop;
+var vkhangi=$scope.userd.khangi;
+var shopr=$scope.userd.shopr;
+var rbazargani=$scope.userd.rbazargani;
+var vaddress=$scope.userd.address;
+var fname=$scope.userd.fname;
+var lname=$scope.userd.lname;
+var vcell=$scope.userd.cell;
+var vtell=$scope.userd.tell;
+var vemail=$scope.userd.emails;
+var vcity=$scope.userd.city;
+var vostan=$scope.userd.selected;
+var vpassword=$scope.userd.pass;
+var vtype=1;
+$scope.uid =  document.getElementById('userid').value;
+
+if($scope.userd.fname==undefined || $scope.userd.pass==undefined || $scope.userd.selected==undefined || $scope.userd.shop==undefined){
+new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
+ return 0;}
+new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
+  $http({
+  method  : 'POST',
+  url     : 'http://admin.borna-grp.ir/api.php',
+  data    : $.param({fname_add: fname, lname_add:lname, tell:vtell, address: vaddress, email:vemail, type:vtype, city: vcity, bazargani:rbazargani, cell:vcell, password:vpassword, shop: vshop, rshop:shopr, khangi:vkhangi, ostan:vostan}),  // pass in data as strings
+  headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+ })
+.success(function() {
+ //$.mobile.changePage( "#khodro", { transition: "slideup"} );
+new $.nd2Toast({   message :"ثبت با موفقیت انجام شد",ttl : 4000});
+ $scope.userd = {};	
+ });
+ $scope.userd = {};	
+};
+///////////////////// pasokh dadan
+
+ $scope.answer = {};	
+$scope.sendanswer = function () {
+ var coder = document.getElementById('coderip').value;
+var vImage = document.getElementById('largeImage3').src;
+$scope.uid =  document.getElementById('userid').value;
+if(vImage==undefined){
+new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
+ return 0;}
+new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
+var d = new Date();	
+var namefile=d.getTime()+'.jpg';
+var largeImage = document.getElementById('largeImage3');
+var imageURI=largeImage.src;
+alert($scope.answer.idrep);
+  $http({
+  method  : 'POST',
+  url     : 'http://admin.borna-grp.ir/manage/code.php',
+  data    : $.param({idreg: $scope.uid, text:$scope.answer.text, id_replys:coder}),  // pass in data as strings
+  headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+ });
+
+todoServicez.UserImg(imageURI,namefile,'end').then(function(){
+document.getElementById('largeImage3').src="img/Sdcds.jpg";
+new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
+});
+$http.get("http://admin.borna-grp.ir/api.php?idx="+$scope.uid+"&pict="+namefile).then(function(response) {
+ $scope.logind = response.data.login;
+ $scope.answer = {};	
+   });
+ };
 /////////////////////////////////////////////namayesh darkhastha
 $scope.shdarkh = function (flag) {
 	 $scope.flagd=flag;
@@ -122,6 +230,28 @@ $http.get("http://admin.borna-grp.ir/api.php?vreq="+idud+"&type="+typer).then(fu
 $scope.darkhast = response.data.vreq;
 });  
  };
+/////////////////////////////////////////////namayesh darkhastha ba city
+$scope.shdarkhc = function (city) {
+	 $scope.flagd=0;
+	
+var idud=document.getElementById('userid').value;
+var typer=document.getElementById('usertype').value;
+$http.get("http://admin.borna-grp.ir/api.php?vosta="+idud+"&type="+typer+"&idos="+city).then(function(response) {
+$scope.darkhast = response.data; 
+
+}).catch(function(response) {
+	$scope.darkhast = response.data;
+//alert(response.data);
+});
+ 
+ };
+ /////////////////all city darkhastha
+ 
+$http.get("http://admin.borna-grp.ir/api.php?lostan").then(function(response) {
+$scope.allcda = response.data.lostan;
+$( "#listv,#listv2,#listv3,#listv4,#listv5,#listv6,#listv7,#listv8" ).listview( "refresh" );
+});
+ 
  
  /////////////////////////////////////////////namayesh user
  

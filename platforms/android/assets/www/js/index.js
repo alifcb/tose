@@ -111,23 +111,41 @@ document.addEventListener("backbutton", function(e){
     }, false);
 /////////////////////////////////////////////////////////////////////////////////////
 function onPhotoURISuccessd(imageURI) {
+	   var i, path, len;
+    for (i = 0, len = imageURI.length; i < len; i += 1) {
+        path = imageURI[i].fullPath;
+		 document.getElementById('largeImage2').src=path;
+    }
   var largeImage = document.getElementById('largeImage2');
   largeImage.style.display = 'inline';
-  largeImage.src = imageURI;
- // alert(imageURI);
-  sPicData  = imageURI; //store image data in a variable
+  sPicData  = imageURI; 
 }
-// A button will call this function
 //
 function getPhotod(source) {
-     navigator.camera.getPicture(onPhotoURISuccessd, picOnFailure, { 
+     navigator.device.capture.captureImage(onPhotoURISuccessd, picOnFailure, { 
             quality: 50,
+			limit:1,
             destinationType: Camera.DestinationType.FILE_URI,
             sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
             correctOrientation: true
         });
     }
 
+function onPhotoURISuccessi(imageURI) {
+  var largeImage = document.getElementById('largeImage3');
+  largeImage.style.display = 'inline';
+  largeImage.src = imageURI;
+}
+//
+function getPhotos(source) {
+     navigator.camera.getPicture(onPhotoURISuccessi, picOnFailure, { 
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+            correctOrientation: true
+        });
+    }
+	
 function picOnFailure(message){
 	alert('Failed because: ' + message);
 }
@@ -138,11 +156,4 @@ function sendak() {
 	 
 }
 
-function downloadi(links){
-	alert(links); 
-downloader.init({folder: "download", unzip: true});
-downloader.get(links);
-document.addEventListener(DOWNLOADER_error, function(event){
- alert(event.data);
-});
-};
+ 
