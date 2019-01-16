@@ -139,8 +139,15 @@ function onPhotoURISuccessi(imageURI) {
 //
 function getPhotos(source) {
 	fileChooser.open(function(uri) {
+  alert(uri.filepath);
   alert(uri);
+    alert(uri.filename);
+	for (i = 0, len = uri.length; i < len; i += 1) {
+        path = imageURI[i].fullPath;
+		 alert(path);
+    }
 });
+ 
    
     }
 	
