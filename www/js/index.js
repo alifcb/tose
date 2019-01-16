@@ -145,7 +145,7 @@ function getPhotos() {
 			alert(fileExtension);
 		alert(fileName);
 		alert(uri);
-window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
+//window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
 	
 });
  
