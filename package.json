@@ -28,7 +28,8 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-vibration": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-filechooser": {}
+            "cordova-plugin-filechooser": {},
+            "cordova-plugin-filepath": {}
         }
     },
     "dependencies": {
@@ -46,6 +47,7 @@
         "cordova-plugin-file-downloader": "^0.4.0",
         "cordova-plugin-file-transfer": "^1.7.1",
         "cordova-plugin-filechooser": "git+https://github.com/ihadeed/cordova-filechooser.git",
+        "cordova-plugin-filepath": "^1.5.1",
         "cordova-plugin-geolocation": "~2.1.0",
         "cordova-plugin-globalization": "~1.0.3",
         "cordova-plugin-inappbrowser": "~1.3.0",

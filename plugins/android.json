@@ -57,6 +57,9 @@
         },
         "cordova-plugin-filechooser": {
             "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.namia.bime"
         }
     },
     "dependent_plugins": {

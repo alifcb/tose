@@ -132,16 +132,21 @@ function getPhotod(source) {
     }
 
 function onPhotoURISuccessi(imageURI) {
+	alert(imageURI);
   var largeImage = document.getElementById('largeImage3');
   largeImage.style.display = 'inline';
   largeImage.src = imageURI;
 }
 //
 function getPhotos() {
-	fileChooser.open(function(imageURI) {
-  var largeImage = document.getElementById('largeImage3');
-  largeImage.style.display = 'inline';
-  largeImage.src = imageURI;
+	fileChooser.open(function(uri) {
+		var fileName = uri.substr(uri.lastIndexOf('/') + 1);
+		var fileExtension = filename.substr(filename.lastIndexOf('/') + 1);
+			alert(fileExtension);
+		alert(fileName);
+		alert(uri);
+window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
+	
 });
  
    
