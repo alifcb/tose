@@ -102,4 +102,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
     <engine name="browser" spec="~4.1.0" />
+    <plugin name="cordova-plugin-filechooser" spec="https://github.com/ihadeed/cordova-filechooser" />
 </widget>

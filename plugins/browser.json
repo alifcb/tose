@@ -7,19 +7,43 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-battery-status": {
+        "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.namia.bime"
         },
-        "cordova-plugin-camera": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-device-motion": {
@@ -37,31 +61,15 @@
         "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.namia.bime"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.namia.bime"
         },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.namia.bime"
+        "cordova-plugin-filechooser": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.namia.bime"
-        }
-    }
+    "dependent_plugins": {}
 }

@@ -272,6 +272,14 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "id": "cordova-plugin-filechooser.FileChooser",
+        "file": "plugins/cordova-plugin-filechooser/www/fileChooser.js",
+        "pluginId": "cordova-plugin-filechooser",
+        "clobbers": [
+            "fileChooser"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -293,7 +301,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-file-transfer": "1.7.1"
+    "cordova-plugin-file-transfer": "1.7.1",
+    "cordova-plugin-filechooser": "1.2.0"
 };
 // BOTTOM OF METADATA
 });

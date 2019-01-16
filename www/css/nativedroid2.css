@@ -1105,6 +1105,8 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 	background-color: #323232;
 	line-height: 48px;
 	width: 450px;
+	direction:rtl;
+	text-align:right;
 
 	max-width: 100%;
 

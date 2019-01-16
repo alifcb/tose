@@ -166,5 +166,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-filechooser": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/ihadeed/cordova-filechooser"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

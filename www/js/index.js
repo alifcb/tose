@@ -93,7 +93,7 @@ document.addEventListener("backbutton", function(e){
  
 
 } else {
-       if($.mobile.activePage.is('#one')){
+       if($.mobile.activePage.is('#login, #one')){
 		       
            e.preventDefault();
            navigator.app.exitApp();
@@ -138,12 +138,10 @@ function onPhotoURISuccessi(imageURI) {
 }
 //
 function getPhotos(source) {
-     navigator.camera.getPicture(onPhotoURISuccessi, picOnFailure, { 
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-            correctOrientation: true
-        });
+	fileChooser.open(function(uri) {
+  alert(uri);
+});
+   
     }
 	
 function picOnFailure(message){

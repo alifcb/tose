@@ -9,6 +9,7 @@ $scope.loginon=false;
 $scope.wopen = function(links) {
  window.open(links, '_system', '');
 };
+
 $scope.inappb = function(links){ 
 var fild=links.split('.');
  var ext=fild[2].split('.').pop();
@@ -27,17 +28,20 @@ document.addEventListener(DOWNLOADER_error, function(event){
 
 };
 ///////////////////////////////login
-setTimeout(function(){ $scope.rlogin(0);}, 2000);
+setTimeout(function(){ $scope.rlogin(1);}, 2000);
 $scope.rlogin = function (sdv) {
 $scope.sephoto=false;
 $scope.enphoto=true;
  $http.get("http://admin.borna-grp.ir/api.php?uuid="+device.uuid).then(function(response) {
  $scope.logind = response.data.login;
- //alert(response.data);	
+// alert($scope.logind[0].ids);	
  if( $scope.logind[0].ids==0){
+	  $.mobile.changePage( "#login", { transition: "slideup"} );
 if(sdv==1){new $.nd2Toast({   message :"خطا در اطلاعات وارد شده",ttl : 4000});}	
   }else{
-	 $.mobile.changePage( "#one", { transition: "slideup"} );
+	  if($.mobile.activePage.is('#login')){
+	  $.mobile.changePage( "#one", { transition: "slideup"} );
+	  }
 	 $scope.dall = $scope.logind[0].alls;
 	 $scope.dnew = $scope.logind[0].news;
 	 //alert($scope.dnew);
@@ -50,9 +54,18 @@ if(sdv==1){new $.nd2Toast({   message :"خطا در اطلاعات وارد شد
 	  document.getElementById('username').value=$scope.logind[0].fname+' '+$scope.logind[0].lname;
 	 }
 });
- 
- 
 };
+
+
+var myVar = setInterval(myTimer, 60000);
+function myTimer() {
+ $http.get("http://admin.borna-grp.ir/api.php?uuid="+device.uuid).then(function(response) {
+ $scope.loginds = response.data.login;
+	 $scope.dall = $scope.loginds[0].alls;
+	 $scope.dnew = $scope.loginds[0].news;
+	 new $.nd2Toast({   message : $scope.dnew +" درخواست جدید وجود دارد",ttl : 4000});
+});
+}
 //////////////////////////////// form login
  $scope.login = {};	
 $scope.sabt_login = function () {
@@ -65,7 +78,7 @@ new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نم
                 headers : {
 					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
-            }
+            };
  var url='http://admin.borna-grp.ir/api.php';
 $http.post(url, datas, config);
 setTimeout(function(){ $scope.rlogin(1);}, 2000);
@@ -74,7 +87,7 @@ setTimeout(function(){ $scope.rlogin(1);}, 2000);
 $scope.exits = function () {
 	var uuid=document.getElementById('userid').value;
  $http.get("http://admin.borna-grp.ir/api.php?exit="+uuid).then(function(response) {
-	 alert(response.data.exit);
+	//alert(uuid);
 if(response.data.exit==1){
   $scope.loginoff=true;
  $scope.loginon=false;
@@ -189,7 +202,7 @@ new $.nd2Toast({   message :"ثبت با موفقیت انجام شد",ttl : 400
  });
  $scope.userd = {};	
 };
-///////////////////// pasokh dadan
+///////////////////////////////////////////////// pasokh dadan
 
  $scope.answer = {};	
 $scope.sendanswer = function () {
@@ -200,11 +213,16 @@ if(vImage==undefined){
 new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
  return 0;}
 new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
-var d = new Date();	
-var namefile=d.getTime()+'.jpg';
+var d = new Date();
 var largeImage = document.getElementById('largeImage3');
 var imageURI=largeImage.src;
-alert($scope.answer.idrep);
+
+var fild=imageURI.split('.');  
+ var ext=fild[4].split('.').pop();
+ var ext2=ext.split('?');
+var namefile=d.getTime()+'.'+ext2[0];
+
+//alert($scope.answer.idrep);
   $http({
   method  : 'POST',
   url     : 'http://admin.borna-grp.ir/manage/code.php',

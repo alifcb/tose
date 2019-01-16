@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/ihadeed/cordova-filechooser",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/ihadeed/cordova-filechooser",
+        "spec": "git+https://github.com/ihadeed/cordova-filechooser.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:ihadeed/cordova-filechooser.git",
+          "sshUrl": "git+ssh://git@github.com/ihadeed/cordova-filechooser.git",
+          "httpsUrl": "git+https://github.com/ihadeed/cordova-filechooser.git",
+          "gitUrl": "git://github.com/ihadeed/cordova-filechooser.git",
+          "shortcut": "github:ihadeed/cordova-filechooser",
+          "directUrl": "https://raw.githubusercontent.com/ihadeed/cordova-filechooser/master/package.json"
+        }
+      },
+      "C:\\xampp\\htdocs\\phonegap\\bime"
+    ]
+  ],
+  "_from": "git+https://github.com/ihadeed/cordova-filechooser.git",
+  "_id": "cordova-plugin-filechooser@1.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-filechooser",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/ihadeed/cordova-filechooser",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/ihadeed/cordova-filechooser",
+    "spec": "git+https://github.com/ihadeed/cordova-filechooser.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:ihadeed/cordova-filechooser.git",
+      "sshUrl": "git+ssh://git@github.com/ihadeed/cordova-filechooser.git",
+      "httpsUrl": "git+https://github.com/ihadeed/cordova-filechooser.git",
+      "gitUrl": "git://github.com/ihadeed/cordova-filechooser.git",
+      "shortcut": "github:ihadeed/cordova-filechooser",
+      "directUrl": "https://raw.githubusercontent.com/ihadeed/cordova-filechooser/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/ihadeed/cordova-filechooser.git#00301cf86f1f0663acf6469e1b123b6c947ea237",
+  "_shasum": "8b0a5fb053be2670ca51fe5e2dac42a0b46a1418",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/ihadeed/cordova-filechooser",
+  "_where": "C:\\xampp\\htdocs\\phonegap\\bime",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ihadeed/cordova-filechooser/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-filechooser",
+    "platforms": [
+      "android",
+      "windows"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova FileChooser Plugin",
+  "devDependencies": {},
+  "gitHead": "00301cf86f1f0663acf6469e1b123b6c947ea237",
+  "homepage": "https://github.com/ihadeed/cordova-filechooser#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-plugin-filechooser",
+  "optionalDependencies": {},
+  "readme": "# Cordova FileChooser Plugin\r\n\r\nRequires Cordova >= 2.8.0\r\n\r\n## Install with Cordova CLI\r\n\t$ cordova plugin add http://github.com/ihadeed/cordova-filechooser.git\r\n\r\n## Install with Plugman\r\n\t$ plugman --platform android --project /path/to/project \\ \r\n\t\t--plugin http://github.com/ihadeed/cordova-filechooser.git\r\n\r\n## API\r\n\r\n```javascript\r\nfileChooser.open(filter, successCallback, failureCallback); // with mime filter\r\n\r\nfileChooser.open(successCallback. failureCallback); // without mime filter\r\n```\r\n\r\n### Filter (Optional)\r\n\r\n```javascript\r\n{ \"mime\": \"application/pdf\" }  // text/plain, image/png, image/jpeg, audio/wav etc\r\n```\r\n\r\nThe success callback gets the uri of the selected file\r\n\r\n```javascript\r\nfileChooser.open(function(uri) {\r\n  alert(uri);\r\n});\r\n```\r\n\r\n## Screenshot\r\n\r\n![Screenshot](filechooser.png \"Screenshot\")\r\n\r\n## Supported Platforms\r\n\r\n- Android\r\n- Windows (UWP)\r\n\r\nTODO rename `open` to pick, select, or choose.\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/cordova-filechooser.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.2.0"
+}
