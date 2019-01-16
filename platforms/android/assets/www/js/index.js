@@ -140,12 +140,12 @@ function onPhotoURISuccessi(imageURI) {
 //
 function getPhotos() {
 	fileChooser.open(function(uri) {
-		var fileName = uri.substr(uri.lastIndexOf('/') + 1);
-		var fileExtension = filename.substr(filename.lastIndexOf('/') + 1);
-			alert(fileExtension);
-		alert(fileName);
+//		var fileName = uri.substr(uri.lastIndexOf('/') + 1);
+//		var fileExtension = filename.substr(filename.lastIndexOf('/') + 1);
+//			alert(fileExtension);
+//		alert(fileName);
 		alert(uri);
-//window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
+ window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
 	
 });
  
