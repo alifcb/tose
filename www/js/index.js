@@ -137,15 +137,11 @@ function onPhotoURISuccessi(imageURI) {
   largeImage.src = imageURI;
 }
 //
-function getPhotos(source) {
-	fileChooser.open(function(uri) {
-  alert(uri.filepath);
-  alert(uri);
-    alert(uri.filename);
-	for (i = 0, len = uri.length; i < len; i += 1) {
-        path = imageURI[i].fullPath;
-		 alert(path);
-    }
+function getPhotos() {
+	fileChooser.open(function(imageURI) {
+  var largeImage = document.getElementById('largeImage3');
+  largeImage.style.display = 'inline';
+  largeImage.src = imageURI;
 });
  
    
