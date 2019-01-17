@@ -220,10 +220,8 @@ var imageURI=largeImage.src;
 var fild=imageURI.split('.');  
  var ext=fild[1];
 var namefile=d.getTime()+'.'+ext;
-
-alert(namefile);
-alert(imageURI);
-
+//alert(namefile);
+//alert(imageURI);
 todoServicez.UserImg(imageURI,namefile,'end').then(function(){
 document.getElementById('largeImage3').src="img/Sdcds.jpg";
 new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
@@ -306,7 +304,7 @@ App.service('todoServicez', function($q)
 			var options = new FileUploadOptions();
 			options.fileKey="filed";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-			 options.mimeType = "application/pdf";
+			 options.mimeType = "application/octet-stream";
 			// alert(imageURI.substr(imageURI.lastIndexOf('/')+1));
 			var params = {};
 			params.valuee = file_name;
@@ -320,9 +318,9 @@ App.service('todoServicez', function($q)
 				},
 				function(error){
 					deferred.reject(error);
- alert("An error has occurred: Code = " + error.code);
-					alert("upload error source " + error.source);
-					alert("upload error target " + error.target);
+                    alert("خطا در ارسال فایل: Code = " + error.code);
+					//alert("upload error source " + error.source);
+					//alert("upload error target " + error.target);
 				}, options);
 
               return deferred.promise;
