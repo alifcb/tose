@@ -428,6 +428,7 @@
 <a onclick="getPhotos();" style="color:#585757" class="ui-btn ui-btn-icon-left ui-mini ui-btn-raised" ><i class="zmdi zmdi-plus"></i>انتخاب تصویر </a>
          <div id="shoso" style=" display:block;">
          <img style="display:none; padding:15px" width="64" height="64" id="largeImage3" src="img/tick.png" />
+         <p style="display:none; padding:15px" width="64" height="64" id="alt3"></p>
       <a id="shoo" class="ui-btn ui-btn-raised clr-primary"  ng-click="sendanswer();" type="button">ارسال</a> 
    </div>
        </div>
@@ -515,7 +516,7 @@
 <input type="text" ng-model="khodr.onvan"  placeholder="عنوان">
 <label for="select-choice-1b" class="select">نوع بیمه نامه</label>
 <span class="btnco">
-<select ng-model="khodr.nooe"  data-native-menu="false">
+<select ng-model="khodr.nooe" data-role="none" data-native-menu="false">
     <option value="1">ثالث</option>
     <option value="2">بدنه</option>
 </select></span>

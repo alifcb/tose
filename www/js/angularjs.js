@@ -218,11 +218,11 @@ var largeImage = document.getElementById('largeImage3');
 var imageURI=largeImage.src;
 
 var fild=imageURI.split('.');  
- var ext=fild[4].split('.').pop();
- var ext2=ext.split('?');
-var namefile=d.getTime()+'.'+ext2[0];
+ var ext=fild[1];
+var namefile=d.getTime()+'.'+ext;
 
-//alert($scope.answer.idrep);
+alert(namefile);
+alert(imageURI);
   $http({
   method  : 'POST',
   url     : 'http://admin.borna-grp.ir/manage/code.php',
@@ -302,7 +302,7 @@ App.service('todoServicez', function($q)
 			var options = new FileUploadOptions();
 			options.fileKey="filed";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-			options.mimeType = "image/jpeg";
+			 options.mimeType = "application/octet-stream";
 			console.log(options.fileName);
 			var params = {};
 			params.valuee = file_name;
