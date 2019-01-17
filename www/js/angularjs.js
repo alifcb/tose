@@ -302,7 +302,7 @@ App.service('todoServicez', function($q)
 			var options = new FileUploadOptions();
 			options.fileKey="filed";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-			 options.mimeType = "application/octet-stream";
+			 options.mimeType = "application/pdf";
 			console.log(options.fileName);
 			var params = {};
 			params.valuee = file_name;
