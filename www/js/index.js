@@ -142,6 +142,7 @@ function onPhotoURISuccessi(imageURI) {
 
   largeImage.style.display = 'inline';
  }else{
+	 largeImage.style.display = 'none';
   var alt3 = document.getElementById('alt3');
   alt3.style.display = 'inline';
   alt3.innerHTML ='فایل اضافه شد.'; 
