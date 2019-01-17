@@ -132,10 +132,20 @@ function getPhotod(source) {
     }
 
 function onPhotoURISuccessi(imageURI) {
-	alert(imageURI);
+	//alert(imageURI);
+	var fild=imageURI.split('.');  
+ var ext=fild[1];
+ var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"]; 
   var largeImage = document.getElementById('largeImage3');
-  largeImage.style.display = 'inline';
   largeImage.src = imageURI;
+   if(valid_formats.includes(ext)){  
+
+  largeImage.style.display = 'inline';
+ }else{
+  var alt3 = document.getElementById('alt3');
+  alt3.style.display = 'inline';
+  alt3.innerHTML ='فایل اضافه شد.'; 
+ }
 }
 //
 function getPhotos() {
@@ -144,7 +154,7 @@ function getPhotos() {
 //		var fileExtension = filename.substr(filename.lastIndexOf('/') + 1);
 //			alert(fileExtension);
 //		alert(fileName);
-		alert(uri);
+		//alert(uri);
  window.FilePath.resolveNativePath(uri, onPhotoURISuccessi);
 	
 });

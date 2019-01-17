@@ -223,6 +223,12 @@ var namefile=d.getTime()+'.'+ext;
 
 alert(namefile);
 alert(imageURI);
+
+todoServicez.UserImg(imageURI,namefile,'end').then(function(){
+document.getElementById('largeImage3').src="img/Sdcds.jpg";
+new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
+});
+
   $http({
   method  : 'POST',
   url     : 'http://admin.borna-grp.ir/manage/code.php',
@@ -230,10 +236,7 @@ alert(imageURI);
   headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
  });
 
-todoServicez.UserImg(imageURI,namefile,'end').then(function(){
-document.getElementById('largeImage3').src="img/Sdcds.jpg";
-new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
-});
+
 $http.get("http://admin.borna-grp.ir/api.php?idx="+$scope.uid+"&pict="+namefile).then(function(response) {
  $scope.logind = response.data.login;
  $scope.answer = {};	
@@ -302,8 +305,8 @@ App.service('todoServicez', function($q)
 			var options = new FileUploadOptions();
 			options.fileKey="filed";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-			 options.mimeType = "application/pdf";
-			console.log(options.fileName);
+			 options.mimeType = "application/octet-stream";
+			//console.log(options.fileName);
 			var params = {};
 			params.valuee = file_name;
 			params.valuee2  = counts;
@@ -312,18 +315,13 @@ App.service('todoServicez', function($q)
 			var ftd = new FileTransfer();
 			ftd.upload(imageURI, encodeURI('http://www.borna-grp.ir/sabt_kh.php'),
 				function(r){
-				//console.log("Code = " + r.responseCode);
-				// alert("Response = " + r.response);
-				//console.log("Sent = " + r.bytesSent);
 					 deferred.resolve(r.response);
-
 				},
 				function(error){
-					//alert("An error has occurred: Code = " + error.code);
-					// console.error("upload error source " + error.source);
-					// console.error("upload error target " + error.target);
 					deferred.reject(error);
-
+ alert("An error has occurred: Code = " + error.code);
+					alert("upload error source " + error.source);
+					alert("upload error target " + error.target);
 				}, options);
 
               return deferred.promise;
