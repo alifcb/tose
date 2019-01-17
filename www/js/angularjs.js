@@ -300,20 +300,21 @@ App.service('todoServicez', function($q)
 {
 	this.UserImg=function(imageURI,file_name,counts){
 	//alert(imageURI+file_name+counts);
+	
          	var deferred, result = [];
              deferred = $q.defer();
 			var options = new FileUploadOptions();
 			options.fileKey="filed";
 			options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-			 options.mimeType = "application/octet-stream";
-			//console.log(options.fileName);
+			 options.mimeType = "application/pdf";
+			// alert(imageURI.substr(imageURI.lastIndexOf('/')+1));
 			var params = {};
 			params.valuee = file_name;
 			params.valuee2  = counts;
 			options.params = params;
 		    options.chunkedMode = false;
 			var ftd = new FileTransfer();
-			ftd.upload(imageURI, encodeURI('http://www.borna-grp.ir/sabt_kh.php'),
+			ftd.upload(imageURI, encodeURI('http://borna-grp.ir/sabt_kh.php'),
 				function(r){
 					 deferred.resolve(r.response);
 				},
