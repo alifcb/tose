@@ -48,7 +48,8 @@ if(sdv==1){new $.nd2Toast({   message :"خطا در اطلاعات وارد شد
 	 $scope.loginoff=false;
 	 $scope.loginon=true;
 	 $scope.fnamep=$scope.logind[0].fname+' '+$scope.logind[0].lname;
-	 if($scope.logind[0].type==1){$scope.pro='کاربر';}else{$scope.pro='مدیر';}
+	 $scope.iduser=$scope.logind[0].ids;
+	 if($scope.logind[0].type==1){$scope.pro='کاربر'; $scope.typer=false;}else{$scope.pro='مدیر'; $scope.typer=true;}
 	 document.getElementById('userid').value=$scope.logind[0].ids;
 	 document.getElementById('usertype').value=$scope.logind[0].type;
 	  document.getElementById('username').value=$scope.logind[0].fname+' '+$scope.logind[0].lname;
@@ -63,7 +64,9 @@ function myTimer() {
  $scope.loginds = response.data.login;
 	 $scope.dall = $scope.loginds[0].alls;
 	 $scope.dnew = $scope.loginds[0].news;
+	 if(dnew!=0){
 	 new $.nd2Toast({   message : $scope.dnew +" درخواست جدید وجود دارد",ttl : 4000});
+	 }
 });
 }
 //////////////////////////////// form login
@@ -94,6 +97,31 @@ if(response.data.exit==1){
  $.mobile.changePage( "#login", { transition: "slideup"} );
 }
    });
+};
+////////////////////////////////
+
+$scope.pids = function (id) {
+	$scope.pidss=id;
+};
+
+ $scope.ch_pass={};
+$scope.ch_passs = function () {
+
+var ids=$scope.pidss;
+var npass=$scope.chpass.npass;	 
+ if(npass==undefined ){
+new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نمایید.",ttl : 4000});
+return 0;}
+var datas = $.param({pass_new:npass, pass_id_reg:ids});
+var config = {
+headers : {
+	'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+}
+};
+var url='http://admin.borna-grp.ir/api.php';
+$http.post(url, datas, config);
+new $.nd2Toast({   message :"تغییر رمز عبور انجام شد.",ttl : 4000});
+$scope.ch_pass={};
 };
 ////////////////////////////////////////////
 $scope.sab_da = function () {
