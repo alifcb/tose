@@ -171,9 +171,12 @@ new $.nd2Toast({   message :"لطفا تمام فیلدها را تکمیل نم
  return 0;}
 new $.nd2Toast({   message :"در حال ارسال اطلاعات",ttl : 4000});
 var d = new Date();	
-var namefile=d.getTime()+'.jpg';
 var largeImage = document.getElementById('largeImage2');
 var imageURI=largeImage.src;
+
+var fild=imageURI.split('.');  
+ var ext=fild[1];
+var namefile=d.getTime()+'.'+ext;
 todoServicez.UserImg(imageURI,namefile,'end').then(function(){
 document.getElementById('largeImage2').src="img/Sdcds.jpg";
 new $.nd2Toast({   message :"ارسال انجام شد.",ttl : 4000});
