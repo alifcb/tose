@@ -111,24 +111,30 @@ document.addEventListener("backbutton", function(e){
     }, false);
 /////////////////////////////////////////////////////////////////////////////////////
 function onPhotoURISuccessd(imageURI) {
-	   var i, path, len;
-    for (i = 0, len = imageURI.length; i < len; i += 1) {
-        path = imageURI[i].fullPath;
-		 document.getElementById('largeImage2').src=path;
-    }
+	//alert(imageURI);
+	var fild=imageURI.split('.');  
+ var ext=fild[1];
+ var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"]; 
   var largeImage = document.getElementById('largeImage2');
+  largeImage.src = imageURI;
+   if(valid_formats.includes(ext)){  
+
   largeImage.style.display = 'inline';
-  sPicData  = imageURI; 
+ }else{
+	 largeImage.style.display = 'none';
+  var alt3 = document.getElementById('alt2');
+  alt3.style.display = 'inline';
+  alt3.innerHTML ='فایل اضافه شد.'; 
+ }
 }
 //
 function getPhotod(source) {
-     navigator.device.capture.captureImage(onPhotoURISuccessd, picOnFailure, { 
-            quality: 50,
-			limit:1,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-            correctOrientation: true
-        });
+ 	fileChooser.open(function(uri) {
+ 
+ window.FilePath.resolveNativePath(uri, onPhotoURISuccessd);
+	
+});
+ 
     }
 
 function onPhotoURISuccessi(imageURI) {
