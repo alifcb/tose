@@ -18,7 +18,7 @@ $scope.inappb = function(links){
  
  var dl = new download();
  
-dl.Initialize({folder: "download", unzip: true,remove: true,
+dl.Initialize({folder: "download",remove: true,
     success: DownloaderSuccess,
     error: DownloaderError 
     
