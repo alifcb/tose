@@ -1,0 +1,115 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-downloader",
+        "scope": null,
+        "escapedName": "cordova-plugin-downloader",
+        "name": "cordova-plugin-downloader",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\xampp\\htdocs\\phonegap\\bime"
+    ]
+  ],
+  "_from": "cordova-plugin-downloader@latest",
+  "_hasShrinkwrap": false,
+  "_id": "cordova-plugin-downloader@0.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-downloader",
+  "_nodeVersion": "8.11.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-downloader_0.0.4_1536105944242_0.08935264247572627"
+  },
+  "_npmUser": {
+    "name": "benjamin.m.wilson",
+    "email": "benjamin.m.wilson@gmail.com"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-downloader",
+    "scope": null,
+    "escapedName": "cordova-plugin-downloader",
+    "name": "cordova-plugin-downloader",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-downloader/-/cordova-plugin-downloader-0.0.4.tgz",
+  "_shasum": "a165d894be3c8467f3a53937677063caab3b9c24",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-downloader",
+  "_where": "C:\\xampp\\htdocs\\phonegap\\bime",
+  "author": {
+    "name": "Ben Wilson"
+  },
+  "bugs": {
+    "url": "https://github.com/benjaminmwilson/cordova-plugin-downloader/issues"
+  },
+  "config": {
+    "lintdirs": "www/**.js lib/**.js"
+  },
+  "cordova": {
+    "id": "cordova-plugin-downloader",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova Downloader Plugin with no cordova-file-transfer dependency",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-spies": "^1.0.0",
+    "jshint": "^2.9.3",
+    "mocha": "^4.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-rvMFMTBkU2C538F9TTbKx86X3EFZq0PUQhXTuaj5qX4uMrnbqgN76p/sUXBqwN9WkrBiVxoAnR382iLs3x2Lqw==",
+    "shasum": "a165d894be3c8467f3a53937677063caab3b9c24",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-downloader/-/cordova-plugin-downloader-0.0.4.tgz",
+    "fileCount": 18,
+    "unpackedSize": 41092,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjx3YCRA9TVsSAnZWagAASPAP/098Ff64kVz6qt/0r+GI\nFhXOORvajxmOPN/Tx1A91rHzokkpizuGm7bmE44ljcnHHfe/6Hdg8KdgszF9\nG3Xzrb034iFNkCO57cCsqXOgSC0wlB7N7mKI/09biTdY6So2Y+jEatXi+NX7\nnuuEXr5WeHxGEqGZXAycmLcE2OAsToFZLjE3nbYZ9JsUTr5yzHZoBWR7N2B1\n0aA9lZNr+yDjC039AX1JXYSHPMYZjDhCzGOo9nH6QhVYSEByioOC2WyTDA16\n91SD+qCD/CGgxgZ+n2TOUGuZ+zBRD7OHbvf5hAYArEmJG83o7vF8SWYAoQ6z\n6B2vLwLhvFoUSUiDYsZlwOqQekFqxg9eEfrytNMSnQOYZorfbFrRm6wnXe1R\nI7+bGwLY7k7vo8Zw7EzroJqe13I1hlS/eKIfZVhatjIQ67N7wGg9zCieG2Uh\nMUA13cvvSlT9sj1VZKTogx5ykFg+Ccd6P9BWG8A8g6G1xGuE1QdwvlufJRbP\nanSDQDb+uVvb+03PQDm+oeTZvC7J+JkYRumfiR0gTyUbVx3hwzLWPQuqey4b\nebziv0l33hMLNv+b9ySz8F1mOc2Z5rMEU931PS9uo7wSSFWXXuipwttdbSvE\nuRTzSvE8vgGO60exT+ES6oTaWy4Hz0RqJfJw3wTUE5PHfdSiL9nIPXnONZwm\ngz2k\r\n=qP+6\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "ac83eb7fc37e278bb901715c28361eec920cb3ae",
+  "homepage": "https://github.com/benjaminmwilson/cordova-plugin-downloader#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "file",
+    "download",
+    "downloader",
+    "unzip"
+  ],
+  "license": "Apache 2.0",
+  "maintainers": [
+    {
+      "name": "benjamin.m.wilson",
+      "email": "benjamin.m.wilson@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-downloader",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjaminmwilson/cordova-plugin-downloader.git"
+  },
+  "scripts": {
+    "lint": "rm -f npm-debug.log && jshint $npm_package_config_lintdirs",
+    "test": "mocha lib/**/**.spec.js"
+  },
+  "version": "0.0.4"
+}

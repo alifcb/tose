@@ -103,4 +103,5 @@
     <plugin name="cordova-plugin-filechooser" spec="https://github.com/ihadeed/cordova-filechooser" />
     <plugin name="cordova-plugin-filepath" spec="^1.5.1" />
     <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-downloader" spec="0.0.4" />
 </widget>

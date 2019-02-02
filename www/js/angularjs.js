@@ -11,21 +11,31 @@ $scope.wopen = function(links) {
 };
 
 $scope.inappb = function(links){ 
-var fild=links.split('.');
- var ext=fild[2].split('.').pop();
+//var fild=links.split('.');
+// var ext=fild[2].split('.').pop();
  alert(links);
- var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"];
- if(valid_formats.includes(ext)){
-	 
- var browser = cordova.InAppBrowser.open(links, '_blank', 'location=no','hideurlbar=yes');
-	 }else{
+// var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"];
  
-downloader.init({folder: "download", unzip: true});
-downloader.get(links);
-document.addEventListener(DOWNLOADER_error, function(event){
- alert('خطا: '+event.data);
+ var dl = new download();
+ 
+dl.Initialize({folder: "download", unzip: true,remove: true,
+    success: DownloaderSuccess,
+    error: DownloaderError 
+    
 });
- }
+ 
+dl.Get(links); 
+function DownloaderError(err) {
+    console.log("download error: " + err);
+    alert("download error: " + err);
+}
+ 
+function DownloaderSuccess() {
+    console.log("yay!");
+}
+
+ 
+ 
 
 };
 ///////////////////////////////login

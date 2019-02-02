@@ -461,6 +461,22 @@ module.exports = [
       "navigator.notification",
       "navigator"
     ]
+  },
+  {
+    "id": "cordova-plugin-zip.Zip",
+    "file": "plugins/cordova-plugin-zip/zip.js",
+    "pluginId": "cordova-plugin-zip",
+    "clobbers": [
+      "zip"
+    ]
+  },
+  {
+    "id": "cordova-plugin-downloader.download",
+    "file": "plugins/cordova-plugin-downloader/www/download.js",
+    "pluginId": "cordova-plugin-downloader",
+    "clobbers": [
+      "download"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -485,7 +501,9 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "3.2.2",
   "cordova-plugin-statusbar": "2.1.3",
   "cordova-plugin-vibration": "2.1.6",
-  "cordova-plugin-whitelist": "1.2.2"
+  "cordova-plugin-whitelist": "1.2.2",
+  "cordova-plugin-zip": "3.1.0",
+  "cordova-plugin-downloader": "0.0.4"
 };
 // BOTTOM OF METADATA
 });

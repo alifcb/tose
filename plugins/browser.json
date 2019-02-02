@@ -43,6 +43,9 @@
         "cordova-plugin-filepath": {
             "PACKAGE_NAME": "com.namia.bime"
         },
+        "cordova-plugin-downloader": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.namia.bime"
         },
@@ -71,6 +74,9 @@
             "PACKAGE_NAME": "com.namia.bime"
         },
         "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-zip": {
             "PACKAGE_NAME": "com.namia.bime"
         }
     },
