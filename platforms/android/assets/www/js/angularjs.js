@@ -360,7 +360,7 @@ App.service('todoServicez', function($q)
 			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 			document.getElementById('bloader').innerHTML=perc+'%';
 			document.getElementById('bloader2').innerHTML=perc+'%';
-   if(perc==100){document.getElementById('blr2').style.display='none';
+   if(perc>97){document.getElementById('blr2').style.display='none';
    document.getElementById('blr').style.display='none';}
     }
 };
