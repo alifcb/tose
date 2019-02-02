@@ -31,6 +31,12 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.namia.bime"
         },
+        "cordova-plugin-filechooser": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.namia.bime"
         },
@@ -54,15 +60,12 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-filechooser": {
-            "PACKAGE_NAME": "com.namia.bime"
-        },
-        "cordova-plugin-filepath": {
-            "PACKAGE_NAME": "com.namia.bime"
         }
     },
     "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.namia.bime"
+        },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.namia.bime"
         }

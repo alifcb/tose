@@ -90,7 +90,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-device" spec="~1.1.1" />
     <plugin name="cordova-plugin-file" spec="~4.1.1" />
@@ -103,4 +102,5 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
     <plugin name="cordova-plugin-filechooser" spec="https://github.com/ihadeed/cordova-filechooser" />
     <plugin name="cordova-plugin-filepath" spec="^1.5.1" />
+    <engine name="android" spec="~6.3.0" />
 </widget>
