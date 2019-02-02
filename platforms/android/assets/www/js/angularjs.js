@@ -329,8 +329,8 @@ App.service('todoServicez', function($q)
 {
 	this.UserImg=function(imageURI,file_name,counts){
 	//alert(imageURI+file_name+counts);
-	document.getElementById('bloader').style.display='block';
-   document.getElementById('bloader2').style.display='block';
+	document.getElementById('blr2').style.display='block';
+   document.getElementById('blr').style.display='block';
          	var deferred, result = [];
              deferred = $q.defer();
 			var options = new FileUploadOptions();
@@ -348,23 +348,22 @@ App.service('todoServicez', function($q)
 				function(r){
 					 deferred.resolve(r.response);
 				},
-	 ftd.onprogress = function(progressEvent) {
-    if (progressEvent.lengthComputable) {
-        var perc=0;
-			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-			document.getElementById('bloader').innerHTML=perc+'%';
-			document.getElementById('bloader2').innerHTML=perc+'%';
-   if(perc==100){document.getElementById('bloader').style.display='none';
-   document.getElementById('bloader2').style.display='none';}
-    }
-},
 				function(error){
 					deferred.reject(error);
                     alert("خطا در ارسال فایل: Code = " + error.code);
 					//alert("upload error source " + error.source);
 					//alert("upload error target " + error.target);
 				}, options);
-
+	 ftd.onprogress = function(progressEvent) {
+    if (progressEvent.lengthComputable) {
+        var perc=0;
+			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+			document.getElementById('bloader').innerHTML=perc+'%';
+			document.getElementById('bloader2').innerHTML=perc+'%';
+   if(perc==100){document.getElementById('blr2').style.display='none';
+   document.getElementById('blr').style.display='none';}
+    }
+};
               return deferred.promise;
                },	
 this.list_dl2 = function(count,list) 
