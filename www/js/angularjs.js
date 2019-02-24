@@ -13,7 +13,7 @@ $scope.wopen = function(links) {
 $scope.inappb = function(links){ 
 var fild=links.split('.');
  var ext=fild[2].split('.').pop();
- alert(links);
+ //alert(links);
  var valid_formats =["jpg", "png", "gif", "bmp", "jpeg","GIF","JPG","JPEG","PNG"];
  if(valid_formats.includes(ext)){
 	 
